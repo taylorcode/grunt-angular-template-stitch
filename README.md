@@ -65,6 +65,11 @@ angularTemplateStitch: {
 }
 ```
 
+
+*You will need to process your templates in angular using `angular-template-stitch`*
+
+See: [angular-template-stitch](https://github.com/taylorcode/angular-template-stitch)
+
 ## Release History
 
 - 0.1.0 : first release, adapted from angular-combine
