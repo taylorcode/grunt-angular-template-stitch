@@ -1,0 +1,48 @@
+{
+  "name": "grunt-angular-combine-taylorcode",
+  "description": "Combine AngularJS partials into a single HTML file.",
+  "version": "0.1.0-m",
+  "homepage": "https://github.com/taylorcode/grunt-angular-combine",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/taylorcode/grunt-angular-combine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taylorcode/grunt-angular-combine/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/taylorcode/grunt-angular-combine/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT",
+  "readme": "# grunt-angular-combine\n\n> Combine AngularJS partials into a single HTML file.\n\n```js\ngrunt.loadNpmTasks('grunt-angular-combine');\n```\n\n## The \"angularCombine\" task\n\n### Overview\nIn your project's Gruntfile, add a section named `angularCombine` to the data object passed into `grunt.initConfig()`.\n\n#### Example 1\n\n```js\nangularCombine: {\n    dist: {\n        files: [{\n            expand : true\n            cwd: 'app'\n            src: 'views'\n            dest: 'dist/combined'\n        }]\n    }\n}\n```\n\nWill generate a file `dist/combined/views.html` that contains all html templates in `app/views`.\n\n#### Example 2\n\n\n```js\nangularCombine: {\n    dist: {\n        files: [{\n            expand : true\n            cwd: 'app/views'\n            src: '*'\n            filter: 'isDirectory'\n            dest: 'dist/combined'\n        }]\n    }\n}\n```\n\nWill generate a file (e.g. `dist/combined/views/group1.html`) of all html templates for each folder within `app/views` (e.g. `app/views/group1/`)\n\n\n#### Options\n\n##### processIdentifier\n\nProcess function that allows you to change the if name for each of the templates.\n\n```js\nangularCombine: {\n    dist: {\n        ...\n        options: {\n            processIdentifier: function (id) {\n                // just use the files name without extension\n                return id.split('/').pop().replace('.html', '');\n            }\n        }\n    }\n}\n```\n\n## Release History\n\n- 0.1.0-m : add ability to change id name for templates\n",
+  "readmeFilename": "README.md",
+  "gitHead": "b0d48513de3f5587fe016cc334625e90c0632bb0",
+  "_id": "grunt-angular-combine-taylorcode@0.1.0-m",
+  "_shasum": "a03bda8010ae71ff0a12189690086cc8c98864fa",
+  "_from": "grunt-angular-combine-taylorcode@"
+}
