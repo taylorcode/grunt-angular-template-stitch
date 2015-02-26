@@ -1,51 +1,48 @@
-# grunt-angular-combine
+# grunt-angular-template-stitch
 
-> Combine AngularJS partials into a single HTML file.
+> Stitch AngularJS templates into a single HTML file, delimiting them by a comment. Useful for proxy services that need HTML files.
 
 ```js
-grunt.loadNpmTasks('grunt-angular-combine');
+grunt.loadNpmTasks('grunt-angular-template-stitch');
 ```
 
-## The "angularCombine" task
-
-### Overview
-In your project's Gruntfile, add a section named `angularCombine` to the data object passed into `grunt.initConfig()`.
+## The "angularTemplateStitch" task
 
 #### Example 1
 
 ```js
-angularCombine: {
+angularTemplateStitch: {
     dist: {
         files: [{
             expand : true
             cwd: 'app'
             src: 'views'
-            dest: 'dist/combined'
+            dest: 'dist/stitched'
         }]
     }
 }
 ```
 
-Will generate a file `dist/combined/views.html` that contains all html templates in `app/views`.
+Will generate a file `dist/stitched/views.html` that contains all html templates in `app/views`.
 
 #### Example 2
 
 
 ```js
-angularCombine: {
+angularTemplateStitch: {
     dist: {
         files: [{
             expand : true
             cwd: 'app/views'
             src: '*'
             filter: 'isDirectory'
-            dest: 'dist/combined'
+            dest: 'dist/stitched'
         }]
     }
 }
 ```
 
-Will generate a file (e.g. `dist/combined/views/group1.html`) of all html templates for each folder within `app/views` (e.g. `app/views/group1/`)
+Will generate a file (e.g. `dist/stitched/views/group1.html`) of all html templates for each folder within `app/views` (e.g. `app/views/group1/`)
 
 
 #### Options
@@ -55,7 +52,7 @@ Will generate a file (e.g. `dist/combined/views/group1.html`) of all html templa
 Process function that allows you to change the if name for each of the templates.
 
 ```js
-angularCombine: {
+angularTemplateStitch: {
     dist: {
         ...
         options: {
@@ -70,4 +67,4 @@ angularCombine: {
 
 ## Release History
 
-- 0.1.0-m : add ability to change id name for templates
+- 0.1.0 : first release, adapted from angular-combine
